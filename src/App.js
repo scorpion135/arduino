@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import axios from "axios";
+import "./App.css";
 
 function App() {
+  const [isLampOn, setIsLampOn] = React.useState(false);
+
+  async function clickOnLamp() {
+    if (!isLampOn) {
+      await axios.get("");
+    }
+  }
+
+  async function clickOffLamp() {
+    if (isLampOn) {
+      await axios.get("");
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="container">
+      <a class="button button3" href="#" onClick={clickOnLamp}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Включить
+      </a>
+      <a class="button button2" href="#" onClick={clickOffLamp}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Выключить
+      </a>
     </div>
   );
 }
